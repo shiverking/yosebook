@@ -1,4 +1,4 @@
-﻿<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 
@@ -19,21 +19,6 @@
 <link rel="stylesheet" type="text/css"
     href="<c:url value='/jsps/css/book/desc.css'/>">
 <script src="<c:url value='/jsps/js/book/desc.js'/>"></script>
-<script type="text/javascript">
-	
-	function add() {
-		var count=document.getElementById("cnt").value;
-		document.getElementById("cnt").value=parseInt(count)+1;
-	}
-	function min() {
-		var count=document.getElementById("cnt").value;
-		if(parseInt(count)>1){
-			document.getElementById("cnt").value=parseInt(count)-1;		
-		};
-	}
-
-	
-</script>
 </head>
 
 <body>
@@ -45,7 +30,7 @@
         <div class="divBookDesc">
             <ul>
                 <li>商品编号：${book.bid }</li>
-                <li>优思价：<span class="price_n">&yen;${book.currPrice }</span></li>
+                <li>集贤价：<span class="price_n">&yen;${book.currPrice }</span></li>
                 <li>定价：<span class="spanPrice">&yen;${book.price }</span>
                                            折扣： <span style="color: #c30;">${book.discount }</span>折
                 </li>
@@ -74,17 +59,13 @@
             </table>
             <div class="divForm">
                 <form id="form1"
-                    action="<c:url value='/cartItem/addSuccess.do'/>"
+                    action="<c:url value='/cartItem/add.do'/>"
                     method="post">
                     <input type="hidden" name="bid" value="${book.bid }" />
-                             
-							 我要买：  <button type="button" onclick="min()">-</button>
-                 <input id="cnt" style="width: 40px; text-align: center;"
-                        type="text" name="quantity" value="1" />
-                 <button type="button" onclick="add()">+</button>件
-				 
+                             我要买：<input id="cnt" style="width: 40px; text-align: center;"
+                        type="text" name="quantity" value="1" />件
                 </form>
-                <a id="btn" href="javascript:$('#form1').submit();" onclick="return alert('购买成功！')"  ></a>
+                <a id="btn" href="javascript:$('#form1').submit();"></a>
             </div>
         </div>
     </div>

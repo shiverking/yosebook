@@ -10,7 +10,7 @@ body {
 	font-family: "microsoft yahei";
 	width: 100%;
 	height: 100%;
-	background: #272C2C;
+	background: #F5F5F5;
     overflow: hidden;
 }
 
@@ -23,8 +23,13 @@ header {
 }
 
 header p {
-	font-size: 18px;
-	color: #ccc;
+	position: absolute;
+	left: 46%;
+    top: 183;
+	font-size: 25px;
+	color: #696969;
+	font-family: Times New Roman;
+    font-weight: 700;	
 }
 
 header img {
@@ -94,6 +99,9 @@ footer p {
     font-size: 12px;
     text-align: center;
 }
+login_click a {
+	
+}
 </style>
 <!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
@@ -130,7 +138,7 @@ footer p {
     </form>
     </section>
     <footer>
-        <p>Copyright &copy; 优思网 2013-2016, All Rights Reserved&nbsp;&nbsp;|&nbsp;&nbsp;京ICP证041189号音像制品经营许可证 京音网8号</p>
+        <p>Copyright &copy; 西北工业大学 23集贤工作室, All Rights Reserved</p>
         <p><img src="<c:url value='/images/beian.png'/> ">&nbsp;&nbsp;<img src="<c:url value='/images/kexin.png'/> "></p>
     </footer>
 </body>

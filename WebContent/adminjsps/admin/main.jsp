@@ -15,7 +15,6 @@
 </head>
 
 <body style="overflow: hidden;">
-<% response.addHeader("Expires", "Thu, 01 Jan 1970 00:00:01 GMT"); %>
     <table class="table" align="center">
         <tr>
             <td colspan="2" align="center" height="110px;"><iframe

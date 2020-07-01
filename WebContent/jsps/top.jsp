@@ -43,15 +43,17 @@ a:hover {
         <div style="font-size: 10pt; line-height: 10px;">
     <c:choose>
         <c:when test="${empty sessionScope.sessionUser }">
-            <a href="<c:url value='/jsps/user/login.jsp'/>" target="_parent">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;会员登录</a>
+            <a href="<c:url value='/user/autoLogin.do'/>" target="_parent" id="auto">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;会员登录</a>
             |&nbsp; <a href="<c:url value='/jsps/user/regist.jsp'/>" target="_parent">注册会员</a>
         </c:when>
         <c:otherwise>
         &nbsp;&nbsp;&nbsp;&nbsp;
-             优思会员：${sessionUser.loginname }&nbsp;&nbsp;|&nbsp;&nbsp; 
+                   当前账户：${sessionUser.loginname }&nbsp;&nbsp;|&nbsp;&nbsp; 
             <a href="<c:url value='/cartItem/myCart.do'/>" target="body">我的购物车</a>&nbsp;&nbsp;|&nbsp;&nbsp;
             <a href="<c:url value='/order/myOrders.do'/>" target="body">我的订单</a>&nbsp;&nbsp;|&nbsp;&nbsp;
             <a href="<c:url value='/jsps/user/pwd.jsp'/>" target="body">修改密码</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+            <a href="<c:url value='/jsps/body.jsp'/>" target="body">返回主页</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+            <a href="" onclick=" window.history.go(-1)">返回</a>&nbsp;&nbsp;|&nbsp;&nbsp;
             <a href="<c:url value='/user/quit.do'/>" target="_parent">退出</a>
         </c:otherwise>
     </c:choose>

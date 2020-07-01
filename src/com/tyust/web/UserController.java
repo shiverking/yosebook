@@ -2,6 +2,7 @@ package com.tyust.web;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -16,6 +17,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.tyust.dao.UserDao;
 import com.tyust.entity.User;
 import com.tyust.service.UserService;
 @Controller
@@ -24,10 +26,18 @@ public class UserController{
 
 	@Autowired
 	private UserService userService;
+	@Autowired
+	private UserDao userDao;
 	
 	@RequestMapping("/quit.do")
-	public String quit(HttpServletRequest request){
+	public String quit(HttpServletRequest request, HttpServletResponse response){
 		request.getSession().invalidate();
+		Cookie[] cookies = request.getCookies();
+		for(int i=0;i<cookies.length;i++){ 
+			Cookie temp = new Cookie(cookies[i].getName(), cookies[i].getValue());
+		    temp.setMaxAge(0);  
+		    response.addCookie(temp); 
+		}  
 		return "redirect:/jsps/user/login.jsp";
 	}
 	@RequestMapping("/updatePassword.do")
@@ -41,6 +51,7 @@ public class UserController{
 			userService.updatePassword(user.getUid(), formUser.getLoginpass(), formUser.getNewpass());
 			request.setAttribute("msg", "修改密码成功！");
 			request.setAttribute("code", "success");
+			request.getSession().invalidate();
 			return "/jsps/msg";
 		} catch (Exception e) {
 			request.setAttribute("msg", e.getMessage());
@@ -48,11 +59,53 @@ public class UserController{
 			return "/jsps/user/pwd";
 		}
 	}
+	@RequestMapping("/autoLogin.do")
+	public String autoLogin(User formUser,HttpSession session, HttpServletRequest request,
+			ModelMap map,HttpServletResponse response)
+					throws UnsupportedEncodingException, SQLException{
+		Cookie[] cookies = request.getCookies();
+		Cookie cook = null;
+		int flag = 0;
+		if(cookies != null) {
+			for (Cookie cookie : cookies) {
+				if(cookie.getName().equals("autoLogin")) {
+					cook = cookie;
+					flag = 1;
+				}
+			}
+			if (flag == 1) {
+				User user = userDao.findByUid(cook.getValue());
+//				System.out.println(user.getLoginname());
+				request.getSession().setAttribute("sessionUser", user);
+				return "/index";
+			}
+		}
+		System.out.print("no cookie");
+		return "/jsps/user/login";
+	}
 	
 	@RequestMapping("/login.do")
-	public String login(User formUser,HttpSession session,
+	public String login(User formUser,HttpSession session, HttpServletRequest request,
 			ModelMap map,HttpServletResponse response)
-					throws UnsupportedEncodingException{
+					throws UnsupportedEncodingException, SQLException{
+		Cookie[] cookies = request.getCookies();
+		Cookie cook = null;
+		int flag = 0;
+		if(cookies != null) {
+			for (Cookie cookie : cookies) {
+				if(cookie.getName().equals("autoLogin")) {
+					cook = cookie;
+					flag = 1;
+				}
+			}
+			if (flag == 1) {
+				User user = userDao.findByUid(cook.getValue());
+//				System.out.println(user.getLoginname());
+				request.getSession().setAttribute("sessionUser", user);
+				return "/index";
+			}
+		}
+		
 		Map<String,String> errors =
 				validateLogin(formUser,session);
 		if(errors.size() > 0){
@@ -72,12 +125,14 @@ public class UserController{
 				return "/jsps/user/login";
 			}else{
 				session.setAttribute("sessionUser", user);
-				String loginname = user.getLoginname();
-				loginname = URLEncoder.encode(loginname,"utf-8");
-				Cookie cookie = new Cookie("loginname",loginname);
-				cookie.setMaxAge(60*60*24*10);
-				response.addCookie(cookie);
-				return "/index";
+				if ("on".equals(request.getParameter("chkAuto"))) {
+					String loginID = user.getUid();
+					loginID = URLEncoder.encode(loginID,"utf-8");
+					Cookie cookie = new Cookie("autoLogin", loginID);
+//					System.out.println(cookie.getValue());
+					cookie.setMaxAge(60*60*24*1);
+					response.addCookie(cookie);	
+				} return "/index";
 			}
 		}
 	}

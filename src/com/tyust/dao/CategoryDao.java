@@ -14,8 +14,6 @@ public interface CategoryDao {
 	
 	public List<Category> findParent() throws SQLException;
 
-	public String search(Map<String,Object> map) throws SQLException;
-	
 	public void add(Map<String,Object> map) throws SQLException;
 	
 	public void edit(Map<String,Object> map) throws SQLException;

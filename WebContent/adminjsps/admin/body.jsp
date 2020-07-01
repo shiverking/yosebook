@@ -10,24 +10,25 @@
 	-->
     <style type="text/css">
         body{
-            background: #4E4E4E;
+            background: #F5F5F5;
         }
         img{
             width: 800px;
             margin-top: 80px;
-            margin-left: 270px;
         }
         p{
             text-align: center;
             font-size: 38px;
             font-family: "microsoft yahei";
-            color: #8AD700;
+            color: #1E90FF;
         }
     </style>
   </head>
   
   <body style="margin: 0px;">
-    <img src="<c:url value='/images/ybig_logo.png'/>" />
-    <p>欢迎使用Yosebook书城！</p>
+  	<div style="text-align: center;">
+    	<img style="vertical_align:middle;" src="<c:url value='/images/ybig_logo.png'/>" />
+    </div>
+    <p>欢迎使用集贤书城后台管理系统！</p>
   </body>
 </html>

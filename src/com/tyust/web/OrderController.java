@@ -224,7 +224,7 @@ public class OrderController{
 	}
 	
 	@RequestMapping("/createOrder.do")
-	public String createOrder(HttpServletRequest request,ModelMap map){
+	public String createOrder(HttpServletRequest request){
 		String cartItemIds = request.getParameter("cartItemIds");
 		List<CartItem> cartItemList = cartItemService.loadCartItems(cartItemIds);
 		//创建order
@@ -232,18 +232,7 @@ public class OrderController{
 		order.setOid(CommonUtil.uuid());
 		order.setOrdertime(String.format("%tF %<tT", new Date()));
 		order.setStatus(1);
-		StringBuilder str=new StringBuilder("收货地址：");
-		String temps=request.getParameter("addp");
-		if(!temps.equals(""))str.append(temps+" 省(自治区) ");
-		temps=request.getParameter("addc");
-		str.append(temps+" 市 ");
-		temps=request.getParameter("addr");
-		str.append(temps+"\n");
-		temps=request.getParameter("addnm");
-		str.append("收货人："+temps+"\n");
-		temps=request.getParameter("addph");
-		str.append("联系电话："+temps+"\n");
-		order.setAddress(str.toString());
+		order.setAddress(request.getParameter("address"));
 		User owner = (User) request.getSession().getAttribute("sessionUser");
 		order.setOwner(owner);
 		BigDecimal total = new BigDecimal("0");

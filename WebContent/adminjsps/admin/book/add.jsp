@@ -43,8 +43,7 @@ $(function () {
 		var cid = $("#cid").val();
 		var image_w = $("#image_w").val();
 		var image_b = $("#image_b").val();
-		var ms=confirm("确定添加!");
-
+		
 		if(!bname || !currPrice || !price || !discount || !author || !press || !pid || !cid || !image_w || !image_b) {
 			alert("图名、当前价、定价、折扣、作者、出版社、1级分类、2级分类、大图、小图都不能为空！");
 			return false;
@@ -53,22 +52,10 @@ $(function () {
 		if(isNaN(currPrice) || isNaN(price) || isNaN(discount)) {
 			alert("当前价、定价、折扣必须是合法小数！");
 			return false;
-	 	}
-		
-		if(ms==true)
-		    {
-			$("#form").submit();
-		    }
-		    else
-		{
-		        return false;
-		           }
-   
-
+		}
+		$("#form").submit();
 	});
-
-
-
+});
 
 function loadChildren(){
 	var pid = $("#pid").val();
@@ -151,9 +138,7 @@ function loadChildren(){
 			</tr>
 			<tr>
 				<td>
-				    
-					<input type="button" id="btn" class="btn"  value="新书上架">
-				
+					<input type="button" id="btn" class="btn" value="新书上架">
 				</td>
 				<td></td>
 				<td></td>

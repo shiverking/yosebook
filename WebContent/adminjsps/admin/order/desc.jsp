@@ -11,8 +11,8 @@
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
 	<link rel="stylesheet" type="text/css" href="<c:url value='/adminjsps/admin/css/order/desc.css'/>">
-
- </head>
+  </head>
+  
 <body>
 	<div class="divOrder">
 		<span>订单号：${order.oid }
@@ -73,10 +73,10 @@
 			<span class="spanTotal">合　　计：</span>
 			<span class="price_t">&yen;${order.total }</span><br/>
 <c:if test="${order.status eq 2 and btn eq 'deliver'}">
-	<a id="deliver" href="/yosebook-ssm/admin/order/deliver.do?oid=${order.oid }" onclick="return confirm('请确认发货？')">发　　货</a>
+	<a id="deliver" href="/yosebook-ssm/admin/order/deliver.do?oid=${order.oid }">发　　货</a>
 </c:if>
 <c:if test="${order.status eq 1 and btn eq 'cancel'}">
-	<a id="cancel" href="/yosebook-ssm/admin/order/cancel.do?oid=${order.oid }" onclick="return confirm('请确认取消？')" >取　　消</a>
+	<a id="cancel" href="/yosebook-ssm/admin/order/cancel.do?oid=${order.oid }">取　　消</a>
 </c:if>
 		</div>
 	</div>

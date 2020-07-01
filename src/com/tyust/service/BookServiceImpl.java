@@ -71,7 +71,6 @@ public class BookServiceImpl implements BookService{
 	
 	public PageBean<Book> findByBname(String bname, int pc){
 		Map<String,Object> map = new HashMap<String,Object>();
-		System.out.print(bname);
 		map.put("bname", bname);
 		map.put("ps", ps);
 		map.put("start", getStart(pc));
@@ -114,7 +113,6 @@ public class BookServiceImpl implements BookService{
 	
 	public PageBean<Book> findByConbination(Book criteria, int pc){
 		Map<String,Object> map = new HashMap<String,Object>();
-		System.out.print(criteria.getAuthor()+criteria.getBname()+criteria.getPress());
 		map.put("bname", criteria.getBname());
 		map.put("author", criteria.getAuthor());
 		map.put("press", criteria.getPress());

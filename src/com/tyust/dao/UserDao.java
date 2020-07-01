@@ -22,4 +22,6 @@ public interface UserDao {
 	public boolean ajaxValidateEmail(String email) throws SQLException;
 	
 	public void add(User user) throws SQLException;
+	
+	public User findByUid(String Uid) throws SQLException;
 }

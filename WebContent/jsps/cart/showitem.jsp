@@ -37,6 +37,9 @@
 </head>
 
 <body>
+    <form id="form1" action="<c:url value='/order/createOrder.do'/>"
+        method="post">
+        <input type="hidden" name="cartItemIds" value="${cartItemIds }" />
         <table width="95%" align="center" cellpadding="0" cellspacing="0">
             <tr bgcolor="#efeae5">
                 <td width="400px" colspan="5"><span
@@ -74,31 +77,19 @@
                 <td colspan="5" bgcolor="#efeae5"><span
                     style="font-weight: 900">收货地址</span></td>
             </tr>
-           
+            <tr>
+                <td colspan="6">
+                <input id="addr" type="text" name="address"
+                 style="font-family: 'microsoft yahei';"
+                 value="陕西省 西安市 长安区 西北工业大学  谢某" />
+                </td>
+            </tr>
+            <tr>
+                <td style="border-top-width: 4px;" colspan="5"
+                    align="right"><a id="linkSubmit"
+                    href="javascript:$('#form1').submit();">提交订单</a></td>
+            </tr>
         </table>
-     <form id="form1" action="<c:url value='/order/createOrder.do'/>"
-        method="post">
-        <input type="hidden" name="cartItemIds" value="${cartItemIds }" />
-         		 收货地址：<br/><input id="addr-P" type="text" name="addp" placeholder="省(自治区)"
-                 style="font-family: 'microsoft yahei';"
-                 />
-                 <input id="addr-C" type="text" name="addc" placeholder="市" required
-                 style="font-family: 'microsoft yahei';"
-                 />
-                 <input id="addr-R" type="text" name="addr" placeholder="详细住址" required
-                 style="font-family: 'microsoft yahei';"
-                 />
-                 <br/>
-                              收件人：<br/><input id="addr-nm" type="text" name="addnm" placeholder="如：张三" required
-                 style="font-family: 'microsoft yahei';"
-                 />
-                 <br/>
-                              联系电话：<br/><input id="addr-ph" type="text" name="addph" placeholder="联系电话" required
-                 style="font-family: 'microsoft yahei';"
-                 />
-                 <br/>
-                 
-                <input type="submit" value="提交"  />
     </form>
 </body>
 </html>

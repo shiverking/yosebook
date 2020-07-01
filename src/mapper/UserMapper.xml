@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tyust.dao.UserDao" >
+  <resultMap id="UserResultMap" type="com.tyust.entity.User" >
+    <id column="uid" property="uid" jdbcType="VARCHAR" />
+    <result column="loginname" property="loginname" jdbcType="VARCHAR" />
+    <result column="loginpass" property="loginpass" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="CHAR" />
+    <result column="activationCode" property="activationCode" jdbcType="VARCHAR" />
+  </resultMap>
+  <select id="findByUidAndLoginpass" parameterType="map" resultType="boolean">
+	  select count(*)
+	    from t_user
+	    where uid=#{uid} and loginpass=#{oldPass}
+  </select>
+  <update id="updateLoginpass" parameterType="map">
+  	  update t_user
+  	    set loginpass=#{newPass}
+  	    where uid=#{uid}
+  </update>
+  <select id="findByLoginnameAndLoginpass" parameterType="map" resultType="com.tyust.entity.User">
+  	  select * 
+  	    from t_user 
+  	    where loginname=#{loginname} and loginpass=#{loginpass}
+  </select>
+  <select id="findByCode" parameterType="string" resultType="com.tyust.entity.User">
+  	  select * 
+  	    from t_user 
+  	    where activationCode=#{activationCode}
+  </select>
+  <update id="updateStatus" parameterType="map">
+  	  update t_user
+  	    set status=#{status} 
+  	    where uid=#{uid}
+  </update>
+  <select id="ajaxValidateLoginname" parameterType="string" resultType="boolean">
+  	  select count(1)
+  	    from t_user 
+  	    where loginname=#{loginname}
+  </select>
+  <select id="ajaxValidateEmail" parameterType="string" resultType="boolean">
+  	  select count(1)
+  	    from t_user 
+  	    where email=#{email}
+  </select>
+  <insert id="add" parameterType="com.tyust.entity.User">
+  	  insert into t_user 
+		(uid,loginname,loginpass,email,status,activationCode) 
+		values (#{uid},#{loginname},#{loginpass},#{email},#{status},#{activationCode})
+  </insert>
+</mapper>

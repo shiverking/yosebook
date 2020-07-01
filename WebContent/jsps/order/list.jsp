@@ -58,11 +58,11 @@
                 </td>
                 <td><a href="<c:url value='/order/load.do?oid=${order.oid }'/>">查看</a><br />
                 <c:if test="${order.status eq 1 }">
-                    <a href="<c:url value='/order/paymentPre.do?oid=${order.oid }'/>" onclick="return confirm('请确认支付？')" >支付</a><br />
-                    <a href="<c:url value='/order/load.do?oid=${order.oid }&btn=cancel' />" onclick="return confirm('请确认取消？')"  >取消</a><br />
+                    <a href="<c:url value='/order/paymentPre.do?oid=${order.oid }'/>">支付</a><br />
+                    <a href="<c:url value='/order/load.do?oid=${order.oid }&btn=cancel'/>">取消</a><br />
                 </c:if>
                 <c:if test="${order.status eq 3 }">
-                    <a href="<c:url value='/order/load.do?oid=${order.oid }&btn=confirm'/>" onclick="return confirm('请确认收货？')"   >确认收货</a><br />
+                    <a href="<c:url value='/order/load.do?oid=${order.oid }&btn=confirm'/>">确认收货</a><br />
                 </c:if>
                 </td>
             </tr>

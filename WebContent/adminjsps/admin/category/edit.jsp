@@ -19,19 +19,6 @@
 			}
 			return true;
 		}
-		function co(){
-			var ms=confirm("请确认修改");
-			if(ms==true)
-		    {
-			return true;
-		    }
-		    else
-		{
-		        return false;
-		           }
-			
-			
-		}
 	</script>
   </head>
   
@@ -44,7 +31,7 @@
     	<input type="hidden" name="cid" value="${parent.cid }"/>
     	分类名称：<input type="text" name="cname" id="cname" value="${parent.cname }"/><br/>
     	分类描述：<textarea rows="5" cols="50" id="desc" name="desc">${parent.desc }</textarea><br/>
-    	<input type="submit" value="修改分类"  onclick="return co( )" />
+    	<input type="submit" value="修改分类"/>
     	<input type="button" value="返回" onclick="history.go(-1)"/>
     </form>
     </section>

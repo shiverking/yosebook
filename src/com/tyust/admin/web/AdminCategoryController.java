@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,7 +30,7 @@ public class AdminCategoryController{
 	}
 	
 	@RequestMapping("/addParent.do")
-	public String addParent(ModelMap map,Category parent,HttpServletResponse res){
+	public String addParent(ModelMap map,Category parent){
 		parent.setCid(CommonUtil.uuid());
 		categoryService.add(parent);
 		return findAll(map);

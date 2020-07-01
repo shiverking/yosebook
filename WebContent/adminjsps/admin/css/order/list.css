@@ -14,11 +14,10 @@ body {
 
 .divMain {
 	width: 1000px;
-	margin-left: 150px;
+	margin: auto;
 }
 
 .pLink {
-	margin-left: 155px;
 	margin-top: 15px;
 }
 

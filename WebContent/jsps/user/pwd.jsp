@@ -74,7 +74,7 @@
                     <tr>
                         <td align="right"></td>
                         <td><input id="submit" type="submit"
-                            value="确认修改" /onclick="return confirm('请确认修改！')"></td>
+                            value="确认修改" /></td>
                     </tr>
                 </table>
             </form>

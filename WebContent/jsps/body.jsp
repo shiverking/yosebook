@@ -17,23 +17,24 @@
     p{
         text-align:center;
         margin:50px auto;  
-        font-family: "microsoft yahei";
+        font-family: "Times New Roman";
         /* color:#15B69A;  */
-        color:#8AD700;
+        color:#696969;
         font-size:42px;
         font-weight: normal;
     }
     img{
-        width:60%;
+        width:50%;
         height:170px;
         margin-top:60px;
-        margin-left:190px;
     }
 </style>
   </head>
   
   <body>
-    <img src="<c:url value='/images/ybig_logo.png'/>">
-    <p>欢迎进入Yosebook书城</p>
+  	<div style="text-align: center;">
+	    <img style="vertical_align:middle;" src="<c:url value='/images/ybig_logo.png'/>">
+	    <p>欢迎进入集贤书城</p>
+    </div>
   </body>
 </html>

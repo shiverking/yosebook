@@ -43,7 +43,7 @@
     </c:forEach>
     	</select><br/>
     	分类描述：<textarea rows="5" cols="50" name="desc" id="desc"></textarea><br/>
-    	<input type="submit" value="添加二级分类" onclick="return confirm('请确认添加？')"/>
+    	<input type="submit" value="添加二级分类"/>
     	<input type="button" value="返回" onclick="history.go(-1)"/>
     </form>
     </section>

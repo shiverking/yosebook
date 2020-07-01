@@ -49,10 +49,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   		where pid=#{value}
   </select>
  
-  <select id="search" parameterType="map" resultType="string">
-      select cid from t_category where cname = #{cname}
-  </select>
-  
   <insert id="add" parameterType="map">
   	insert into t_category 
   		(cid,cname,pid,`desc`) 

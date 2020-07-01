@@ -90,7 +90,7 @@
                             <td><%-- <input type="image"
                                 src="<c:url value='/images/regist1.jpg'/>"
                                 id="submit" /> --%>
-                                <input type="submit" id="submitBtn" value="" class="btnRegist" onclick="return confirm('请确认注册？')">
+                                <input type="submit" id="submitBtn" value="" class="btnRegist">
                             </td>   
                             <td><a class="alreadyHave" href="<c:url value='/jsps/user/login.jsp'/>">已有账号？</a></td>
                         </tr>
@@ -100,7 +100,7 @@
         </div>
     </section>
     <footer>
-        <p>Copyright &copy; 优思网 2013-2016, All Rights Reserved&nbsp;&nbsp;|&nbsp;&nbsp;京ICP证041189号音像制品经营许可证 京音网8号</p>
+        <p>Copyright &copy; 西北工业大学 23集贤工作室, All Rights Reserved</p>
         <p><img src="<c:url value='/images/beian.png'/>">&nbsp;&nbsp;<img src="<c:url value='/images/kexin.png'/>"></p>
     </footer>
 </body>

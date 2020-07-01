@@ -22,7 +22,7 @@
 /*
  * 第一个参数必须和变量名相同
  */
-	var bar = new Q6MenuBar("bar", "Yosebook书城");
+	var bar = new Q6MenuBar("bar", "集贤Jix书城");
 	$(function() {
 		bar.colorStyle = 4; //配色样式，共有5种
 		bar.config.imgDir = "<c:url value='/menu/img/'/>";

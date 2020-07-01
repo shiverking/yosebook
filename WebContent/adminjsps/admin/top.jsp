@@ -22,7 +22,7 @@ p {
 	line-height: 30px;
 	font-size: 30px;
 	margin-top: 25px;
-	color: #8AD700;
+	color: #1E90FF;
 }
 
 a {
@@ -45,7 +45,7 @@ a:hover {
 </head>
 
 <body>
-    <p>Yosebook后台管理</p>
+    <p>集贤Jix后台管理</p>
     <div style="line-height: 10px;">
         <span style="margin-left: 10px; color: #fff;">管理员：${sessionAdmin.adminname }</span> <a
             target="_top" href="<c:url value='/admin/admin/quit.do'/>">退出</a>

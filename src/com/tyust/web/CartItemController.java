@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.tyust.entity.Book;
 import com.tyust.entity.CartItem;
 import com.tyust.entity.User;
-import com.tyust.service.BookService;
 import com.tyust.service.CartItemService;
 
 @Controller
@@ -23,8 +22,6 @@ public class CartItemController{
 
 	@Autowired
 	private CartItemService cartItemService;
-	@Autowired
-	private BookService bookService;
 	
 	@RequestMapping("/loadCartItems.do")
 	public String loadCartItems(HttpServletRequest request,ModelMap map,String total){
@@ -74,20 +71,6 @@ public class CartItemController{
 		List<CartItem> cartItemList = cartItemService.myCart(uid);
 		map.addAttribute("cartItemList", cartItemList);
 		return "/jsps/cart/list";
-	}
-	
-	@RequestMapping("/addSuccess.do")
-	public String addSuccess(ModelMap map,HttpServletRequest request,
-			CartItem cartItem,Book book){
-		User user = (User) request.getSession().getAttribute("sessionUser");
-		cartItem.setBook(book);
-		cartItem.setUser(user);
-		//调用service，完成添加
-		cartItemService.add(cartItem);
-		//返回原页面
-		Book book1 = bookService.load(book.getBid());
-		map.addAttribute("book", book1);
-		return "/jsps/book/desc";
 	}
 
 }

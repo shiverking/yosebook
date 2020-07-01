@@ -113,7 +113,9 @@
   </select>
   
   <select id="findByCombination" parameterType="map" resultMap="BookResultMap">
-  	select * from t_book where bname like concat('%',#{bname},'%') and author like concat('%',#{author},'%') and press like concat('%',#{press},'%');
+  	<include refid="select_*_sql"/>
+  	<include refid="where_sql"/>
+  	<include refid="order_limit_sql"/>
   </select>
   
   <delete id="delete" parameterType="string">

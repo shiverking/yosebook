@@ -9,6 +9,11 @@
     <result column="status" property="status" jdbcType="CHAR" />
     <result column="activationCode" property="activationCode" jdbcType="VARCHAR" />
   </resultMap>
+  <select id="findByUid" parameterType="string" resultType="com.tyust.entity.User">
+  	  select * 
+  	    from t_user 
+  	    where uid=#{uid}
+  </select>
   <select id="findByUidAndLoginpass" parameterType="map" resultType="boolean">
 	  select count(*)
 	    from t_user

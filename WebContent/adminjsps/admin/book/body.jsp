@@ -26,7 +26,6 @@
         width:500px;
         height:150px;
         margin-top:80px;
-        margin-left:310px;
     }
 </style>
 </head>
@@ -37,6 +36,8 @@
         <a href="<c:url value='/admin/book/addPre.do'/>">添加图书</a>
         <a href="<c:url value='/adminjsps/admin/book/gj.jsp'/>">高级搜索</a>
     </p>
-    <img src="/yosebook-ssm/images/ybig_logo.png">
+    <div style="text-align: center;">
+    	<img style="vertical_align:middle;" src="/yosebook-ssm/images/ybig_logo.png">
+    </div>
 </body>
 </html>

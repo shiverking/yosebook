@@ -72,13 +72,13 @@
 			<span style="font-weight: 900; font-size: 15px;">合计金额：</span>
 			<span class="price_t">&yen;${order.total }</span><br/>
 <c:if test="${order.status eq 1 }">
-    <a id="pay" href="<c:url value='/order/paymentPre.do?oid=${order.oid }'/>" class="pay" onclick="return confirm('请确认支付？')"  >立即支付</a><br/>
+    <a id="pay" href="<c:url value='/order/paymentPre.do?oid=${order.oid }'/>" class="pay">立即支付</a><br/>
 </c:if>
 <c:if test="${btn eq 'confirm' }">
-    <a id="confirm" href="<c:url value='/order/confirm.do?oid=${order.oid }'/> " onclick="return confirm('请确认收货？')"  >确认收货</a>
+    <a id="confirm" href="<c:url value='/order/confirm.do?oid=${order.oid }'/> ">确认收货</a>
 </c:if>
 <c:if test="${btn eq 'cancel'}">
-    <a id="cancel" href="<c:url value='/order/cancel.do?oid=${order.oid }'/> " onclick="return confirm('请确认取消？')"  >取消订单</a><br/>	
+    <a id="cancel" href="<c:url value='/order/cancel.do?oid=${order.oid }'/> ">取消订单</a><br/>	
 </c:if>	
 		</div>
 	</div>

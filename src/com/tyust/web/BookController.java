@@ -91,7 +91,7 @@ public class BookController {
 	public String findByConbination(HttpServletRequest request,Book criteria){
 		int pc = getPc(request);
 		String url = getUrl(request);
-		System.out.print("1"+criteria.getAuthor()+criteria.getBname()+criteria.getPress());
+		
 		PageBean<Book> pb = bookService.findByConbination(criteria, pc);
 		pb.setUrl(url);
 		request.setAttribute("pb", pb);

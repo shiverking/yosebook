@@ -183,13 +183,13 @@
                 </span>
             </td>
             <td>
-                <a href="<c:url value='/cartItem/batchDelete.do?cartItemIds=${cartItem.cartItemId }'/>" onclick="return confirm('请确认删除？')" >删除</a>
+                <a href="<c:url value='/cartItem/batchDelete.do?cartItemIds=${cartItem.cartItemId }'/>">删除</a>
             </td>
         </tr>
      </c:forEach>       
         <tr>
             <td colspan="4" class="tdBatchDelete"><a
-                href="javascript:batchDelete();" onclick="return confirm('请确认删除？')"  >批量删除</a></td>
+                href="javascript:batchDelete();">批量删除</a></td>
             <td colspan="3" align="right" class="tdTotal"><span>总计：</span><span
                 class="price_t">&yen;<span id="total"></span></span></td>
         </tr>

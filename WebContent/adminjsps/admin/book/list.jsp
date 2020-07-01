@@ -21,7 +21,6 @@
 </head>
 
 <body>
-<% response.addHeader("Cache-Control", "no-store"); %>
     <div class="divBook">
         <ul>
         <c:forEach items="${pb.beanList }" var="book">

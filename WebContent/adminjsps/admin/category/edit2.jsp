@@ -27,19 +27,6 @@
 		}
 		return true;
 	}
-	function co(){
-		var ms=confirm("请确认修改");
-		if(ms==true)
-	    {
-		return true;
-	    }
-	    else
-	{
-	        return false;
-	           }
-		
-		
-	}
 </script>
 </head>
 <body>
@@ -58,7 +45,7 @@
         </c:forEach>   
         </select><br /> 分类描述：
         <textarea rows="5" cols="50" name="desc" id="desc">${child.desc }</textarea>
-        <br /> <input type="submit" value="修改二级分类"  onclick="return co( )"/> <input
+        <br /> <input type="submit" value="修改二级分类" /> <input
             type="button" value="返回" onclick="history.go(-1)" />
     </form>
     </section>

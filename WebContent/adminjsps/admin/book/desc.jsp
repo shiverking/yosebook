@@ -24,7 +24,7 @@ $(function() {
 	$("#box").attr("checked", false);
 	$("#formDiv").css("display", "none");
 	$("#show").css("display", "");	
-
+	
 	// 操作和显示切换
 	$("#box").click(function() {
 		if($(this).attr("checked")) {
@@ -62,22 +62,12 @@ function loadChildren() {
 }
 
 function editForm(){
-	var ms=confirm("请确认修改");
-	if(ms==true){
 	$("#form").attr("action", "/yosebook-ssm/admin/book/edit.do");
-	$("#form").submit();}
-	else{
-		return false;
-		}
+	$("#form").submit();
 }
 function delForm(){
-	var ms=confirm("请确认删除");
-	if(ms==true){
 	$("#form").attr("action", "/yosebook-ssm/admin/book/delete.do");
-	$("#form").submit();}
-	else{
-		return false;
-		}
+	$("#form").submit();
 }
 </script>
   </head>

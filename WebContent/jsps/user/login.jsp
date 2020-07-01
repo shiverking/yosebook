@@ -61,7 +61,7 @@
 				</tr>
 				<tr>
 					<td>
-						<input type="checkbox" id="chkAuto" name="autoLogin">
+						<input type="checkbox" id="chkAuto" name="chkAuto">
 						<label for="chkAuto" class="lbAuto">自动登录</label>
 						<!-- <input type="checkbox" id="chkSafe" name="forgetPwd"> -->
 						&nbsp;&nbsp;&nbsp;&nbsp;
@@ -70,7 +70,7 @@
 				</tr>
 				<tr>				
 					<td>
-						<input type="submit" id="btnLogin" value="">
+						<input type="submit" id="btnLogin" value="" >
 					</td>
 				</tr>
 				<tr>
@@ -83,7 +83,7 @@
 	  </div>
 	</section>
 	<footer>
-		<p>Copyright &copy; 优思网 2013-2016, All Rights Reserved&nbsp;&nbsp;|&nbsp;&nbsp;京ICP证041189号音像制品经营许可证 京音网8号</p>
+		<p>Copyright &copy; 西北工业大学 23集贤工作室, All Rights Reserved</p>
 		<p><img src="<c:url value='/images/beian.png'/>">&nbsp;&nbsp;<img src="<c:url value='/images/kexin.png'/>"></p>
 	</footer>
  </body>

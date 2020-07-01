@@ -22,7 +22,7 @@
 </head>
 
 <body>
-<% response.addHeader("Cache-Control", "no-store"); %>
+	<div class="divMain">
     <p class="pLink">
         <a href="<c:url value='/admin/order/findByStatus.do?status=1'/>">未付款</a>
         | <a href="<c:url value='/admin/order/findByStatus.do?status=2'/>">已付款</a>
@@ -30,7 +30,6 @@
         | <a href="<c:url value='/admin/order/findByStatus.do?status=4'/>">交易成功</a>
         | <a href="<c:url value='/admin/order/findByStatus.do?status=5'/>">已取消</a>
     </p>
-    <div class="divMain">
         <div class="title">
             <div style="margin-top: 7px;">
                 <span style="margin-left: 150px; margin-right: 280px;">商品信息</span>
